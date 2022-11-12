@@ -1,11 +1,10 @@
 import { TableOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
 import { useState } from "react";
-
+import avatar from "./avatar.jpg"
 
 
 export default function Post(){
     
-    const[image, setImage]=useState<string>("");
     const[comments, setComments]=useState<string[]>([]);
     const[tags,setTags]=useState<string[]>([]);
     const[userName, setUsername]=useState<string>("");
@@ -14,7 +13,6 @@ export default function Post(){
 
     async function fecthData(){
         setTags(["gym, work"])
-        setImage("./avatar.jpg")
         setUsername("oltea")
         setLikes(123)
         setText("Hello there bio")
@@ -26,9 +24,10 @@ export default function Post(){
             <p>avatar here</p>
         </div>
     
-    <div className="flex flex-col bg-gray-100 ">
-        <div className="w-full h-80 bg-green-800">
-            <p>photo</p>
+    <div className="flex flex-col h-80 bg-gray-100 ">
+        <div className=" w-full h-fit h-80 bg-green-800">
+            {/* <p>photo</p> */}
+            <img src={avatar.src} alt="" />
         </div>
         <div className="flex">
             <button
