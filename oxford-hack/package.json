@@ -1,33 +1,107 @@
 {
-  "name": "oxford-hack",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@aave/lens-protocol",
+  "version": "1.0.2",
+  "description": "Composable and decentralized social graph",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "test": "npm run compile && TRACK_GAS=true hardhat test",
+    "quick-test": "hardhat test",
+    "spdx": "hardhat prepend-spdx-license",
+    "size": "npm run compile && hardhat size-contracts",
+    "full-deploy-local": "hardhat full-deploy --network localhost",
+    "full-deploy-mumbai": "hardhat full-deploy --network mumbai",
+    "coverage": "npm run compile && hardhat coverage --temp temp-artifacts --testfiles test/emptyrun.coverage.ts && hardhat coverage --temp temp-artifacts --testfiles '!test/emptyrun.coverage.ts'",
+    "run-env": "npm i && tail -f /dev/null",
+    "hardhat": "hardhat",
+    "hardhat:kovan": "hardhat --network kovan",
+    "hardhat:tenderly-main": "hardhat --network tenderlyMain",
+    "hardhat:ropsten": "hardhat --network ropsten",
+    "hardhat:main": "hardhat --network main",
+    "hardhat:docker": "hardhat --network hardhatevm_docker",
+    "hardhat:mumbai": "hardhat --network mumbai",
+    "hardhat:matic": "hardhat --network matic",
+    "compile": "SKIP_LOAD=true hardhat clean && SKIP_LOAD=true hardhat compile",
+    "console:fork": "MAINNET_FORK=true hardhat console",
+    "format": "prettier --write .",
+    "lint": "eslint ."
   },
-  "dependencies": {
-    "@apollo/client": "^3.7.1",
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.8",
-    "babel": "^6.23.0",
-    "eslint": "8.27.0",
-    "eslint-config-next": "13.0.3",
-    "ethers": "^5.7.2",
-    "graphql": "^16.6.0",
-    "next": "^13.0.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "4.8.4"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aave/lens-protocol"
   },
+  "bugs": {
+    "url": "https://github.com/aave/lens-protocol/issues"
+  },
+  "homepage": "https://github.com/aave/lens-protocol#readme",
   "devDependencies": {
+<<<<<<< Updated upstream
     "autoprefixer": "^10.4.13",
     "hardhat": "^2.12.2",
     "postcss": "^8.4.19",
     "tailwindcss": "^3.2.4",
     "ts-node": "^10.9.1"
   }
+=======
+    "@nomiclabs/hardhat-ethers": "2.0.2",
+    "@nomiclabs/hardhat-etherscan": "2.1.8",
+    "@typechain/ethers-v5": "8.0.5",
+    "@typechain/hardhat": "3.0.0",
+    "@types/chai": "4.2.22",
+    "@types/mocha": "9.0.0",
+    "@types/node": "16.11.11",
+    "@typescript-eslint/eslint-plugin": "5.5.0",
+    "@typescript-eslint/parser": "5.5.0",
+    "chai": "4.3.4",
+    "defender-relay-client": "^1.37.0",
+    "dotenv": "10.0.0",
+    "eslint": "8.3.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "ethereum-waffle": "^4.0.7",
+    "ethers": "5.5.1",
+    "hardhat": "^2.12.2",
+    "hardhat-contract-sizer": "2.1.1",
+    "hardhat-gas-reporter": "1.0.6",
+    "hardhat-log-remover": "2.0.2",
+    "hardhat-spdx-license-identifier": "2.0.3",
+    "husky": "7.0.4",
+    "prettier": "2.5.0",
+    "prettier-plugin-solidity": "1.0.0-beta.19",
+    "solidity-coverage": "^0.7.22",
+    "ts-generator": "0.1.1",
+    "ts-node": "10.4.0",
+    "typechain": "6.0.5",
+    "typescript": "4.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged --pattern 'contracts/**/*.sol' --pattern 'helpers/**/*.ts'  --pattern 'test/**/*.ts' --pattern 'tasks/**/*.ts'"
+    }
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.0"
+  },
+  "author": "Lens",
+  "contributors": [
+    "Peter Michael (Zer0dot)",
+    "Miguel Martinez",
+    "Lasse Herskind",
+    "Steven Valeri",
+    "Alan Donoso Naumczuk",
+    "Emilio Frangella",
+    "David Racero"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "lens",
+    "protocol",
+    "aave",
+    "social",
+    "graph",
+    "solidity",
+    "evm",
+    "contracts",
+    "core"
+  ]
+>>>>>>> Stashed changes
 }
