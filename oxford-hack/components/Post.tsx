@@ -19,17 +19,17 @@ export default function Post(){
     }
     
     return <>
-    <div className="w-[70%] shadow-lg">
+    <div className="w-max-[100] w-[70%] shadow-lg">
         <div className="h-7 bg-green-200 ml-[60%] mt-10 hover:scale-110 hover:cursor-pointer hover:-translate-x-2  transition duration-300 ease-in-out ">
             <p>avatar here</p>
         </div>
     
     <div className="flex flex-col h-80 bg-gray-100 ">
-        <div className=" w-full h-fit h-80 bg-green-800">
+        <div className=" w-fit h-fit h-80 bg-green-800">
             {/* <p>photo</p> */}
             <img src={avatar.src} alt="" />
         </div>
-        <div className="flex">
+        <div className="flex w-fit">
             <button
 
             className=" flex-grow  hover:font-bold m-3 hover:scale-110 transition duration-300"
