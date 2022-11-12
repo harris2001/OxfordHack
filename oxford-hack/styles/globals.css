@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.button{
+    @apply flex-grow  hover:font-bold m-3 hover:scale-110 transition duration-300 ;
+}
