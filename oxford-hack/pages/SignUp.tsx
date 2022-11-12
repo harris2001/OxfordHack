@@ -4,10 +4,12 @@ import axios from "axios";
 
 
 
+
 export default function SignUp(){
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+
 	
 	let submitLogIn = async () =>
 	{
@@ -84,16 +86,15 @@ export default function SignUp(){
               type="button"
               className="inline-block px-7 py-3 bg-green-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
             >
-              Login
+              Sign up
             </button>
             <div className="flex-col">
             <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-              Don't have an account?</p>
-              <a
-                href="#!"
+              Have an account?</p>
+              <button
+                
                 className="text-orange-600 hover:text-orange-700 focus:text-orange-700 transition duration-200 ease-in-out"
-                >Register</a
-              >
+                >Login</button>
       
             </div>
           </div>

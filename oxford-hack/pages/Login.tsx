@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Divider } from "antd";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -8,7 +9,8 @@ export default function LogIn(){
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	
+	// const navigate=useNavigate();
+
 	let submitLogIn = async () =>
 	{
 		// e.preventDefault()
@@ -89,12 +91,10 @@ export default function LogIn(){
             <div className="flex-col">
             <p className="text-sm font-semibold mt-2 pt-1 mb-0">
               Don't have an account?</p>
-              <a
-                href="#!"
-                className="text-orange-600 hover:text-orange-700 focus:text-orange-700 transition duration-200 ease-in-out"
-                >Register</a
-              >
-      
+             <button
+                // onClick={()=>navigate("/sign-up")}
+                className="text-orange-600 hover:text-orange-700 focus:text-orange-700 transition duration-200 ease-in-out">
+                Register</button>
             </div>
           </div>
         </form>

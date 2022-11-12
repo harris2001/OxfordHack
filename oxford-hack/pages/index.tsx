@@ -6,17 +6,13 @@ import LogIn from './Login'
   import { BrowserRouter as Router, Routes, Route }
     from "react-router-dom";
 import SignUp from './SignUp';
+import Analytics from './Analytics';
+import Feed from './Feed';
 
 export default function Home() {
   
   return (
-    <>
-    <Router>
-      <Routes>
-        <Route path="/log-in" element={<LogIn /> } />
-        <Route path="/sign-up" element={<SignUp />} />
-      </Routes>
-    </Router>
-    </>
+    <Feed /> 
+    
   )
 }
