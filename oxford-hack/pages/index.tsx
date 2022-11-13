@@ -1,18 +1,22 @@
 /* pages/index.js */
 import { useEffect, useState } from 'react'
 import { client, exploreProfiles } from '../api'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
-import LogIn from './Login'
-  import { BrowserRouter as Router, Routes, Route }
+  import { BrowserRouter as Router, Route }
     from "react-router-dom";
-import SignUp from './SignUp';
-import Analytics from './Analytics';
-import Feed from './Feed';
+import SignUp from './signup';
+import Analytics from './analytics';
+import Feed from './feed';
+import React from 'react';
+
+import LandingPage from './landing'
 
 export default function Home() {
-  
+
+  const router=useRouter();
+
   return (
-    <Feed /> 
-    
-  )
-}
+    <LandingPage/>
+  );
+    }

@@ -1,6 +1,8 @@
 import { CommentOutlined, HeartFilled, HeartOutlined, ShareAltOutlined, TableOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
+import React from "react";
 import { useState } from "react";
 import avatar from "./avatar.jpg"
+
 
 
 export default function Post(){
@@ -21,7 +23,7 @@ export default function Post(){
     
     return <>
     <div className="flex flex-col w-[350px] h-[550px]">
-        <div className="t-0 hover:rounded-md motion-reduce:hover:transition-transform duration-500 ease-out items-center w-fit p-1 font-normal bg-three  flex hover:scale-[1.115] hover:translate-x-2 hover:-translate-y-2 hover:cursor-pointer ">
+        <div className="mt-7 t-0 hover:rounded-md motion-reduce:hover:transition-transform duration-500 ease-out items-center w-fit p-1 font-normal bg-three  flex hover:scale-[1.115] hover:translate-x-2 hover:-translate-y-2 hover:cursor-pointer ">
             <img src={avatar.src} className="w-10 h-10 rounded-full mr-2" />
             <p className="mr-1">avatar here</p>
         </div>
