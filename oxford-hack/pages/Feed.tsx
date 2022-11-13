@@ -1,4 +1,3 @@
-import { QqCircleFilled, PlusCircleOutlined, LogoutOutlined } from "@ant-design/icons";
 import { type } from "os";
 import React from "react";
 import { useState } from "react";
@@ -6,9 +5,12 @@ import Post from "../components/Post";
 import { useRouter } from 'next/router'
 import Sheet from 'react-modal-sheet';
 import NewPost from "./new-post";
+import SideBar from "../components/SideBar";
 
 
 export default function Feed(){
+
+    const [darkMode, setDarkMode] = useState(true)
 
 const NewPost=()=> {
      const router=useRouter();
@@ -21,11 +23,7 @@ const NewPost=()=> {
     const [isOpen, setOpen] = useState<boolean>(false);
 
     return <div className="flex bg-one h-full w-full flex-col items-center ">
-        <div className="absolute top-4 right-4 flex flex-col justify-between h-[120px] w-[40px]">
-        <QqCircleFilled onClick={()=>router.push("/analytics")} className="side-button" />
-        <PlusCircleOutlined onClick={()=>{router.push("/new-post"); setOpen(true)} }className="side-button"/>
-        <LogoutOutlined onClick={()=>router.push("/landing")} className="side-button" />
-        </div>
+      <SideBar />
     {isOpen ? <NewPost/> : <></>}   
     {posts.map(()=><Post />)}
     </div>

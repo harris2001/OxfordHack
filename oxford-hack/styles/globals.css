@@ -3,9 +3,34 @@
 @tailwind utilities;
 
 .button {
-  @apply items-center justify-evenly flex  hover:bg-five py-1 px-5 rounded-md flex-row w-[125px] transition duration-300;
+  @apply items-center outline-none justify-evenly flex  hover:bg-five py-1 px-5 rounded-md flex-row w-[125px] transition duration-300;
 }
 
 .side-button {
   @apply hover:transition outline-none duration-500 ease-in-out text-white scale-[2] hover:scale-[2.3] hover:cursor-pointer;
+}
+
+#animatedBackground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("https://wallpaperaccess.com/full/1250108.jpg");
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: auto 100%;
+  /*adjust s value for speed*/
+  animation: animatedBackground 1000s linear infinite;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+
+  /*use negative width if you want it to flow right to left else and positive for left to right*/
+  to {
+    background-position: 0 -10000px ;
+  }
 }
