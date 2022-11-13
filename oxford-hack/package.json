@@ -1,9 +1,13 @@
 {
-  "name": "@aave/lens-protocol",
-  "version": "1.0.2",
+  "name": "oxford-hack",
+  "version": "0.1.0",
   "description": "Composable and decentralized social graph",
   "main": "index.js",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
     "test": "npm run compile && TRACK_GAS=true hardhat test",
     "quick-test": "hardhat test",
     "spdx": "hardhat prepend-spdx-license",
@@ -22,25 +26,27 @@
     "hardhat:matic": "hardhat --network matic",
     "compile": "SKIP_LOAD=true hardhat clean && SKIP_LOAD=true hardhat compile",
     "console:fork": "MAINNET_FORK=true hardhat console",
-    "format": "prettier --write .",
-    "lint": "eslint ."
+    "format": "prettier --write ."
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aave/lens-protocol"
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.0",
+    "antd": "^4.24.2",
+    "next": "^13.0.3"
   },
-  "bugs": {
-    "url": "https://github.com/aave/lens-protocol/issues"
-  },
-  "homepage": "https://github.com/aave/lens-protocol#readme",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "2.0.2",
     "@nomiclabs/hardhat-etherscan": "2.1.8",
-    "@typechain/ethers-v5": "^8.0.5",
-    "@typechain/hardhat": "^3.1.0",
+    "@typechain/ethers-v5": "8.0.5",
+    "@typechain/hardhat": "3.0.0",
     "@types/chai": "4.2.22",
+    "@types/jest": "^29.2.2",
     "@types/mocha": "9.0.0",
     "@types/node": "16.11.11",
+    "@types/query-string": "^6.3.0",
+    "@types/reach__router": "^1.3.11",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "5.5.0",
     "@typescript-eslint/parser": "5.5.0",
     "autoprefixer": "^10.4.13",
@@ -65,18 +71,13 @@
     "tailwindcss": "^3.2.4",
     "ts-generator": "0.1.1",
     "ts-node": "10.4.0",
-    "typechain": "^6.1.0",
+    "typechain": "6.0.5",
     "typescript": "4.5.2"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged --pattern 'contracts/**/*.sol' --pattern 'helpers/**/*.ts'  --pattern 'test/**/*.ts' --pattern 'tasks/**/*.ts'"
     }
-  },
-  "dependencies": {
-    "@openzeppelin/contracts": "^4.8.0",
-    "antd": "^4.24.2",
-    "react-router-dom": "^6.4.3"
   },
   "author": "Lens",
   "contributors": [
