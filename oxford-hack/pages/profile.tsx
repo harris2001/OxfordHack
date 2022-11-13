@@ -5,23 +5,26 @@ import MetricBlock from "../components/MetricBlock";
 import SideBar from "../components/SideBar";
 import { Pie } from '@ant-design/plots';
 
+import { useLazyQuery, useMutation } from "@apollo/client";
+// import { useAccount, useSigner, useDisconnect } from 'wagmi'
+import { useRouter } from 'next/router'
+import { setTokens } from "./auth";
+import { Web3ReactProvider } from '@web3-react/core';
+import logo from "./logo.png";
+import { ethers,utils } from "ethers";
+
+import { ApolloClient, InMemoryCache } from '@apollo/client'
+import { gql } from '@apollo/client'
+
+import LandingPage from './landing'
+
+const APIURL = 'https://api-mumbai.lens.dev/';
+const apolloClient= new ApolloClient({
+    uri: APIURL,
+    cache: new InMemoryCache(),
+    })
 
 export default function Profile(){
-    const [user, setUser]=useState({});
-    const [bio, setBio]=useState("");
-    const [posts, setPosts]=useState([1,2,3]);
-    const [image, setImage]=useState("");
-    const [followed, setFollowed]=useState(false);
-
-    async function fetch(){
-        setUser(mock.data.profile);
-        setBio(mock.data.profile.bio);
-        setImage(avatar.src);
-    }
-
-    useEffect(()=>{
-         fetch();
-    },[])
 
     function metric(name:string, value:number){
         return <div className="flex flex-col items-center">
@@ -64,34 +67,35 @@ const DemoPie = () => {
   return <Pie {...config} />;
 };
 
-    return <div className="text-white items-center flex flex-col  bg-one w-full h-screen">
-          <SideBar/>
-        <div className="flex  flex-row justify-around  bg-two w-[80%] rounded-md h-[100px]">
-        <div className="flex flex-col justify-evenly">
-        <img className="w-16 h-16 rounded-lg " 
-        src={image}/>
-        <p className="text-center">{user.id}</p>
-        </div>
-        {metric("Stalkers", mock.data.profile.stats.totalFollowers)}
-        {metric("Stalking", mock.data.profile.stats.totalFollowing)}
-        {!followed? <button onClick={()=>setFollowed(true)} className="button">Follow</button> 
-        : <button className="button" onClick={()=>setFollowed(false)}>Unfollow</button>}
-        </div>
-        <div className="flex bg-three mt-2  w-[80%] flex-col rounded-md p-1 items-center">
-             {bio}
-            </div>
+    if (!isConnected) {
+      ()=>route.redirect("/");
+    }
+    return(<div className="text-white items-center flex flex-col  bg-one w-full h-screen">
+        <SideBar/>
+      <div className="flex  flex-row justify-around  bg-two w-[80%] rounded-md h-[100px]">
+      <div className="flex flex-col justify-evenly">
+      <img className="w-16 h-16 rounded-lg " 
+      src={image}/>
+      <p className="text-center">{user.id}</p>
+      </div>
+      {metric("Stalkers", mock.data.profile.stats.totalFollowers)}
+      {metric("Stalking", mock.data.profile.stats.totalFollowing)}
+      {!followed? <button onClick={()=>setFollowed(true)} className="button">Follow</button> 
+      : <button className="button" onClick={()=>setFollowed(false)}>Unfollow</button>}
+      </div>
+      <div className="flex bg-three mt-2  w-[80%] flex-col rounded-md p-1 items-center">
+            {bio}
+          </div>
 
-        <div className="flex  w-[80%] p-1 justify-between items-center">
-        <MetricBlock metric={"Likes"} />
-        <MetricBlock metric={"Comments"} />
-         <MetricBlock metric={"Shares"} />
-        </div>
-        <DemoPie/>
-        </div>
-
-    {
-  
-}}
+      <div className="flex  w-[80%] p-1 justify-between items-center">
+      <MetricBlock metric={"Likes"} />
+      <MetricBlock metric={"Comments"} />
+        <MetricBlock metric={"Shares"} />
+      </div>
+      <DemoPie/>
+      </div>
+    )}
+  }
 
 const mock={"data" :{
     "profile": {
@@ -162,4 +166,41 @@ const mock={"data" :{
       "followModule": null
     }
   }
+
+
+    
+//     return ( <div className="App">
+//      <header className="App-header">
+//        {haveMetamask ? (
+//         <div className="App-header">
+//           {isConnected ? (
+//             <div className="card">
+//               <div className="card-row">
+//                 <h3>Wallet Address:</h3>
+//                 <p>
+//                   {accountAddress}
+//                 </p>
+//               </div>
+//               <div className="card-row">
+//                 <h3>Wallet Balance:</h3>
+//                 <p>{accountBalance}</p>
+//               </div>
+//             </div>
+//           ) : (
+//             <img src={logo.src} className="App-logo" alt="logo" />
+//           )}
+//           {isConnected ? (
+//             <p className="info">🎉 Connected Successfully</p>
+//           ) : (
+//             <button className="btn" onClick={connectWallet}>
+//               Connect
+//             </button>
+//           )}
+//         </div>
+//       ) : (
+//         <p>Please Install MataMask</p>
+//       )}
+//     </header>
+//   </div>
+// );
 }
