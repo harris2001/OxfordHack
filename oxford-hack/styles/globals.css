@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .button{
-    @apply flex-grow  hover:font-bold m-3 hover:scale-110 transition duration-300 ;
+    @apply items-center justify-evenly flex  hover:bg-five py-1 px-5 rounded-md flex-row w-[125px] transition duration-300 ;
 }
