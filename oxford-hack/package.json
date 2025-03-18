@@ -35,7 +35,7 @@
     "antd-icons": "^0.1.0-alpha.1",
     "ethers": "^5.7.2",
     "graphql": "^16.6.0",
-    "next": "^13.0.3",
+    "next": "^14.2.7",
     "react-dom": "^18.2.0",
     "react-modal-sheet": "^1.8.1",
     "react-tsparticles": "^2.5.3",
